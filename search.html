@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/search.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Karla:wght@200;300&family=Mulish:wght@200;400&family=PT+Sans&family=Pacifico&family=Shizuru&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <title>Search | bashastudio.online</title>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <!-- Mobile Navigation -->
+      <div id="hamburger">
+        <i class="fas fa-bars" id="hamburgerIcon"></i>
+      </div>
+
+      <!-- Logo and Navigation -->
+      <div id="logohead">
+        <a href="./index.html">
+          <img
+            src="https://via.placeholder.com/150x50?text=bashastudio.online"
+            alt="bashastudio.online logo"
+            id="main_logo"
+          />
+        </a>
+
+        <!-- User Navigation -->
+        <div id="user-nav">
+          <ul>
+            <a href="./help.html">
+              <li class="nav-item"><i class="far fa-question-circle"></i> HELP</li>
+            </a>
+            <a href="./shoppingBasket.html">
+              <li class="nav-item"><i class="fas fa-shopping-bag"></i> CART</li>
+            </a>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <div id="container">
+      <div id="main">
+        <!-- Search Bar -->
+        <div class="search-container">
+          <input
+            type="text"
+            id="searchbar"
+            placeholder="Search for products, styles, or categories..."
+            autocomplete="off"
+          />
+          <button id="searchButton"><i class="fas fa-search"></i></button>
+        </div>
+
+        <!-- Trending Products -->
+        <div id="trending_product">
+          <h3>POPULAR SEARCHES</h3>
+          <div class="trending-tags">
+            <span class="trending-tag" onclick="filterProducts('shirt')">Men's Shirts</span>
+            <span class="trending-tag" onclick="filterProducts('shoes')">Shoes</span>
+            <span class="trending-tag" onclick="filterProducts('accessories')">Women's Accessories</span>
+            <span class="trending-tag" onclick="filterProducts('jacket')">Women's Jackets</span>
+            <span class="trending-tag" onclick="filterProducts('dress')">Summer Dresses</span>
+            <span class="trending-tag" onclick="filterProducts('jeans')">Denim Jeans</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Search Results Grid -->
+      <div id="searchResults">
+        <div id="all-products" class="product-grid">
+          <!-- Products will be dynamically inserted here -->
+        </div>
+        
+        <div id="filtered-products" class="product-grid none">
+          <!-- Filtered products will appear here -->
+        </div>
+      </div>
+      
+      <!-- Recently Viewed Section -->
+      <div id="recently-viewed" class="none">
+        <h3>RECENTLY VIEWED</h3>
+        <div class="recent-items"></div>
+      </div>
+
+      <!-- Footer Section -->
+      <div id="footer_section">
+        <div id="about">
+          <div class="about_info">
+            <h4>CUSTOMER SERVICE</h4>
+            <a href="#"><p>Contact Us</p></a>
+            <a href="#"><p>FAQs</p></a>
+            <a href="#"><p>Shipping Information</p></a>
+            <a href="#"><p>Returns & Exchanges</p></a>
+            <a href="#"><p>Order Tracking</p></a>
+            <a href="#"><p>Size Guide</p></a>
+          </div>
+          <div class="about_info">
+            <h4>ABOUT US</h4>
+            <a href="#"><p>Our Story</p></a>
+            <a href="#"><p>Sustainability</p></a>
+            <a href="#"><p>Careers</p></a>
+            <a href="#"><p>Press</p></a>
+          </div>
+          <div class="about_info">
+            <h4>CONNECT WITH US</h4>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-pinterest-p"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>Subscribe to our newsletter</p>
+            <div class="newsletter">
+              <input type="email" placeholder="Your email address">
+              <button>SUBSCRIBE</button>
+            </div>
+          </div>
+          <div class="about_info">
+            <h4>LEGAL</h4>
+            <a href="#"><p>Terms & Conditions</p></a>
+            <a href="#"><p>Privacy Policy</p></a>
+            <a href="#"><p>Cookie Policy</p></a>
+            <a href="#"><p>Accessibility</p></a>
+          </div>
+        </div>
+        <footer>
+          <div id="footer_left_box">
+            <p>&copy; 2023 bashastudio.online. ALL RIGHTS RESERVED</p>
+          </div>
+          <div id="payment-methods">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-amex"></i>
+            <i class="fab fa-cc-paypal"></i>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script src="./scripts/search.js"></script>
+    <script>
+      // Enhanced search functionality
+      document.getElementById('searchButton').addEventListener('click', performSearch);
+      document.getElementById('searchbar').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          performSearch();
+        }
+      });
+
+      function performSearch() {
+        const searchTerm = document.getElementById('searchbar').value.trim();
+        if (searchTerm) {
+          // Implement search logic here
+          console.log(`Searching for: ${searchTerm}`);
+          // This would typically call an API: fetch(`https://api.bashastudio.online/search?q=${searchTerm}`)
+        }
+      }
+
+      function filterProducts(category) {
+        // Implement category filtering
+        console.log(`Filtering by: ${category}`);
+        // This would show/hide relevant product sections
+      }
+
+      // Mobile menu toggle
+      document.getElementById('hamburgerIcon').addEventListener('click', function() {
+        // Implement mobile menu toggle
+        console.log('Mobile menu toggled');
+      });
+    </script>
+  </body>
+</html>

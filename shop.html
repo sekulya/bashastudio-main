@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center | bashastudio.online</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="./styles/help.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+</head>
+
+<body>
+    <div id="header"></div>
+    <div class="help-container">
+        <h2 id="shop">SHOP AT bashastudio.online</h2>
+        <p id="help" onclick="goToHelp()">HELP CENTER</p>
+        
+        <div id="help-menu">
+            <div class="help-option" onclick="showAccountHelp()">
+                <div class="help-icon">
+                    <img src="https://static.zara.net/photos///mkt/misc/help/icons//icon-80-help-registered-user.svg?ts=1550654368093" alt="Account Help">
+                </div>
+                <p>YOUR bashastudio.online ACCOUNT</p>
+            </div>
+            <div class="help-option" onclick="showOrderHelp()">
+                <div class="help-icon">
+                    <img src="https://static.zara.net/photos///mkt/misc/help/icons//icon-80-help-order-settings.svg?ts=1550654368093" alt="Order Help">
+                </div>
+                <p>ORDER MODIFICATION</p>
+            </div>
+            <div class="help-option" onclick="showShoppingHelp()">
+                <div class="help-icon">
+                    <img src="https://static.zara.net/photos///mkt/misc/help/icons//icon-80-help-bag.svg?ts=1550654368093" alt="Shopping Help">
+                </div>
+                <p>SHOPPING</p>
+            </div>
+            <div class="help-option" onclick="showWishlistHelp()">
+                <div class="help-icon">
+                    <img src="https://static.zara.net/photos///mkt/misc/help/icons//icon-80-help-wishlist.svg?ts=1550654368093" alt="Wishlist Help">
+                </div>
+                <p>WISHLIST</p>
+            </div>
+            <div class="help-option" onclick="showPriceHelp()">
+                <div class="help-icon">
+                    <img src="https://static.zara.net/photos///mkt/misc/help/icons//icon-80-help-changes-in-price.svg?ts=1550654368093" alt="Price Help">
+                </div>
+                <p>PRICE CHANGES</p>
+            </div>
+            <div class="help-option" onclick="showNewsletterHelp()">
+                <div class="help-icon">
+                    <img src="https://static.zara.net/photos///mkt/misc/help/icons//icon-80-help-newsletter.svg?ts=1550654368093" alt="Newsletter Help">
+                </div>
+                <p>NEWSLETTER</p>
+            </div>
+        </div>
+
+        <div id="account-help" class="help-section">
+            <div class="section-header">
+                <img src="https://static.zara.net/photos///mkt/misc/help/icons//icon-80-help-registered-user.svg?ts=1550654368093" alt="Account Help">
+                <h3>YOUR bashastudio.online ACCOUNT</h3>
+            </div>
+            <div class="section-content">
+                <p>
+                    On bashastudio.online you can complete your purchase either as a GUEST or a REGISTERED customer.
+                    Registering is quick and easy. We only ask for the information we need to speed up your shopping experience.
+                </p>
+                <p>
+                    You'll find helpful examples in the registration form to guide you when entering details like your phone number.
+                </p>
+                <p>
+                    Your order information is always available through your account if you're registered, or via the link in your confirmation email if you check out as a guest.
+                </p>
+            </div>
+        </div>
+
+        <div id="order-help" class="help-section" style="display:none;">
+            <div class="section-header">
+                <img src="https://static.zara.net/photos///mkt/misc/help/icons//icon-80-help-order-settings.svg?ts=1550654368093" alt="Order Help">
+                <h3>ORDER MODIFICATION</h3>
+            </div>
+            <div class="section-content">
+                <p>
+                    After completing your purchase, we'll send you a confirmation email with all your order details.
+                </p>
+                <p>
+                    Please note that we may not be able to cancel or amend your order if it's already in an advanced stage of preparation.
+                </p>
+                <p>
+                    For any order changes, please contact our customer service team as soon as possible.
+                </p>
+            </div>
+        </div>
+
+        <!-- Additional help sections would follow the same pattern -->
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="./scripts/mainhelp.js"></script>
+    <script type="module">
+        import { header } from "./components/header.js";
+        import { footers } from "./components/footer.js";
+        let navbar_div = document.getElementById("header");
+        let footer_div = document.getElementById("footer");
+        footer_div.innerHTML = footers();
+        navbar_div.innerHTML = header();
+
+        // Enhanced help section toggling
+        function showAccountHelp() {
+            document.getElementById('account-help').style.display = 'block';
+            document.getElementById('order-help').style.display = 'none';
+            // Hide other sections similarly
+        }
+
+        function showOrderHelp() {
+            document.getElementById('account-help').style.display = 'none';
+            document.getElementById('order-help').style.display = 'block';
+            // Hide other sections similarly
+        }
+
+        // Add similar functions for other help sections
+    </script>
+</body>
+</html>
