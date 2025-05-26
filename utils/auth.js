@@ -1,22 +1,46 @@
-// utils/auth.js
-export const AuthService = {
-  getToken: () => {
+export class AuthService {
+  static get isValidSession() {
+    return !!this.token && this.isTokenValid();
+  }
+
+  static get token() {
+    return this.getSafeItem('token');
+  }
+
+  static async logout() {
     try {
-      return JSON.parse(localStorage.getItem("token")) || null;
+      // Add API call to invalidate token server-side
+      await fetch('/api/logout', {
+        headers: { Authorization: `Bearer ${this.token}` }
+      });
+    } finally {
+      this.clearSession();
+    }
+  }
+
+  static clearSession() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    document.dispatchEvent(new CustomEvent('authChange'));
+  }
+
+  static async isTokenValid() {
+    try {
+      const response = await fetch('/api/validate-token', {
+        headers: { Authorization: `Bearer ${this.token}` }
+      });
+      return response.ok;
     } catch (error) {
-      console.error('Token parse error:', error);
+      return false;
+    }
+  }
+
+  static getSafeItem(key) {
+    try {
+      return JSON.parse(localStorage.getItem(key));
+    } catch (error) {
+      this.clearSession();
       return null;
     }
-  },
-  
-  getUserName: () => {
-    try {
-      return JSON.parse(localStorage.getItem("userName")) || '';
-    } catch (error) {
-      console.error('Username parse error:', error);
-      return '';
-    }
-  },
-
-  isAuthenticated: () => !!AuthService.getToken()
-};
+  }
+}

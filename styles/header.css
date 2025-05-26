@@ -36,14 +36,13 @@
   content: "\f00d";
 }
 
-.logo img {
-  padding: 2px 0px 0px;
-  display: inline;
-  margin-left: 6%;
-  /* top: 26px; */
-
-  margin-top: -75px;
+.main-logo img {
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Center the logo */
 }
+
 
 .sidebar {
   top: 0;
