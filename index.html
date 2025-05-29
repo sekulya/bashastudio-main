@@ -18,32 +18,43 @@
   <body>
     <div id="header"></div>
     <div class="main-logo">
-    <img src="images\basha-studio-high-resolution-logo.png" alt="Basha Studios Logo">
-  </div>
+      <img src="images/basha-studio-high-resolution-logo.png" alt="Basha Studios Logo">
+    </div>
+    <!-- Login, Cart, and Products Buttons Start -->
+    <div style="text-align: right; margin: 16px 32px 0 0;">
+      <a href="login.html" style="font-family: 'Karla', sans-serif; text-decoration: none; font-weight: bold; color: #333; border: 1px solid #333; border-radius: 4px; padding: 6px 16px; background: #fff; transition: background 0.2s, color 0.2s; margin-left: 8px;">
+        Login
+      </a>
+      <a href="payment.html" style="font-family: 'Karla', sans-serif; text-decoration: none; font-weight: bold; color: #333; border: 1px solid #333; border-radius: 4px; padding: 6px 16px; background: #fff; transition: background 0.2s, color 0.2s; margin-left: 8px;">
+        Cart
+      </a>
+      <a href="products.html" style="font-family: 'Karla', sans-serif; text-decoration: none; font-weight: bold; color: #333; border: 1px solid #333; border-radius: 4px; padding: 6px 16px; background: #fff; transition: background 0.2s, color 0.2s; margin-left: 8px;">
+        Products
+      </a>
+    </div>
+    <!-- Login, Cart, and Products Buttons End -->
     <div>
       <div class="slideshow-container">
         <div class="mySlides fade">
           <img
             id="slideImg"
-            src="images\Weixin Image_20250523161130.jpg"
+            src="images/Weixin Image_20250523161130.jpg"
           />
           <p id="sale">S A L E</p>
           <p id="saleTag">ONLINE AND IN STORES</p>
         </div>
-
         <div class="mySlides fade">
           <img
             id="slideImg"
-            src="images\Weixin Image_20250523161136.jpg"
+            src="images/Weixin Image_20250523161136.jpg"
           />
           <p id="sale">S A L E</p>
           <p id="saleTag">ONLINE AND IN STORES</p>
         </div>
-
         <div class="mySlides fade">
           <img
             id="slideImg"
-            src="images\WeixinImage_20250523161123.jpg"
+            src="images/WeixinImage_20250523161123.jpg"
           />
           <p id="sale">S A L E</p>
           <p id="saleTag">ONLINE AND IN STORES</p>
@@ -81,7 +92,6 @@
   $("nav ul li").click(function () {
     $(this).addClass("active").siblings().removeClass("active");
   });
-
 </script>
 
 <script src="./scripts/index.js"></script>

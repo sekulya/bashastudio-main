@@ -1,100 +1,120 @@
- * {
-        margin: 0;
-        padding: 0;
-      }
+* {
+  margin: 0;
+  padding: 0;
+}
 
-      .grid {
-        display: grid;
-      }
+.grid {
+  display: grid;
+}
 
-      #main {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1em;
-        
-        width: 90%;
-        margin: 10% auto;
-      }
-
-      #main img {
-        height: 90%;
-        width: 100%;
-      }
-
-      #main > div {
-        margin-bottom: 5em;
-      }
-
-      #main > div p {
-        font-size: x-small;
-        font-weight: bold;
-        color: gray;
-      }
-
-      #main > div > div:nth-child(2)>div {
-        text-align: right;
-      }
-
-      .underline:hover{
-          cursor:pointer;
-          text-decoration:underline;
-          color:black !important;
-      }
-
-      #main > div > div:nth-child(2) > div > p:nth-child(2) {
-        background-color: yellow;
-      }
-
-      .flex {
-        display: flex;
-        justify-content: space-between;
-      }
-
-  @media only screen and (min-width: 375px) and (max-width: 768px){
 #main {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1em;
-        
-        width: 90%;
-        margin: 10% auto;
-      }
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+  width: 90%;
+  margin: 10% auto;
+}
 
-      .prev,
+#main img {
+  height: 90%;
+  width: 100%;
+}
+
+#main > div {
+  margin-bottom: 5em;
+}
+
+#main > div p {
+  font-size: x-small;
+  font-weight: bold;
+  color: gray;
+}
+
+#main > div > div:nth-child(2)>div {
+  text-align: right;
+}
+
+.underline:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: black !important;
+}
+
+#main > div > div:nth-child(2) > div > p:nth-child(2) {
+  background-color: yellow;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Positioning for the 5th to 8th items under each of the first row items */
+#main .under-cotton {
+  grid-column: 1;
+  grid-row: 2;
+}
+#main .under-blue {
+  grid-column: 2;
+  grid-row: 2;
+}
+#main .under-long {
+  grid-column: 3;
+  grid-row: 2;
+}
+#main .under-skirt {
+  grid-column: 4;
+  grid-row: 2;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 768px) {
+  #main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+    width: 90%;
+    margin: 10% auto;
+  }
+
+  .prev,
   .next,
   .text {
     font-size: 11px;
-  }  
-
- 
-   
+  }
+  /* Remove grid positioning for custom under classes on mobile/tablet for stacking */
+  #main .under-cotton,
+  #main .under-blue,
+  #main .under-long,
+  #main .under-skirt {
+    grid-column: auto;
+    grid-row: auto;
+  }
 }
 
-@media only screen and (min-width: 0px) and (max-width: 390px){
-   #main {
-        grid-template-columns: 1fr;
-        gap: 1em;
-        
-        width: 90%;
-        margin: 10% auto;
-      }
+@media only screen and (min-width: 0px) and (max-width: 390px) {
+  #main {
+    grid-template-columns: 1fr;
+    gap: 1em;
+    width: 90%;
+    margin: 10% auto;
+  }
 
-      #bookVdo {
+  #bookVdo {
     transform: rotateZ(90deg);
     width: 750px;
     height: 700px;
   }
   .slideshow-container {
     width: 80%;
-    /* position: relative; */
     margin-top: 10%;
     font-size: 20px;
     height: 700px;
     margin-left: 25%;
     margin-bottom: 15%;
   }
-  .rightoptions p,#search-input{
+  .rightoptions p,
+  #search-input {
     font-size: 8px;
   }
-  #footer a{
+  #footer a {
     font-size: 13px;
   }
 
@@ -102,13 +122,20 @@
     padding: 2px 0px 0px;
     display: inline;
     margin-left: 30%;
-    /* top: 26px; */
     margin-top: -71px;
     width: 40%;
   }
+  /* Remove grid positioning for custom under classes on small screens */
+  #main .under-cotton,
+  #main .under-blue,
+  #main .under-long,
+  #main .under-skirt {
+    grid-column: auto;
+    grid-row: auto;
+  }
 }
 
-#sortPrice{
+#sortPrice {
   margin-top: 20px;
   width: 200px;
   height: 30px;
