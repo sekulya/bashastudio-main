@@ -1,11 +1,11 @@
 {
   "name": "bashastudio",
   "version": "1.0.0",
-  "main": "scripts/index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node scripts/index.js",
-    "dev": "nodemon scripts/index.js"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
