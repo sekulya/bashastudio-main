@@ -142,3 +142,31 @@
   margin-left: 1030px;
   border: 1px solid black;
 }
+
+.add-to-cart-btn {
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.6em 1.5em;
+  font-size: 1em;
+  font-family: 'Karla', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 1em 0 0 0;
+  transition: background 0.2s, transform 0.1s;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  outline: none;
+  display: block;
+  width: 90%;
+  max-width: 220px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.add-to-cart-btn:hover, .add-to-cart-btn:focus {
+  background: #00796b;
+  color: #fff;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+}
