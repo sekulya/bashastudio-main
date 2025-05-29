@@ -1,24 +1,30 @@
 const express = require('express');
 const path = require('path');
-const app = express();
 
+// 1. Initialize Express app FIRST
+const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
+// 2. THEN add middleware
 app.use(express.json());
 
-// CORS
+// CORS middleware
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   next();
 });
 
-// ✅ Serve static files from the current directory
+// 3. Configure static files
 app.use(express.static(__dirname));
 
-// ✅ Serve index.html on the root route
+// 4. Define routes
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Explicit login route
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'login.html'));
 });
 
 // API endpoint
@@ -26,12 +32,12 @@ app.get('/api/data', (req, res) => {
   res.json({ message: "Hello from the API!" });
 });
 
-// Login route
+// Login POST endpoint
 app.post('/login', (req, res) => {
   res.send('Login endpoint working!');
 });
 
+// 5. Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-  console.log('https://bashastudio-24d01979b2c4.herokuapp.com/')
 });
